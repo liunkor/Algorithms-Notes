@@ -5,12 +5,8 @@ public class CircularString {
         // a = "ACTGACG";
         // b = "TGACGAC";
         // if a
-        if (a.equals(b)) {
-            return true;
-        }
-        if (a == null || b == null || a.length() != b.length()) {
-            return false;
-        }
+        if (a.equals(b)) { return true;}
+        if (a == null || b == null || a.length() != b.length()) { return false;}
         for (int i = 0; i < a.length(); i++) {
             if (b.startsWith(a.substring(i, a.length()))) {
                 int index = i;
@@ -23,15 +19,11 @@ public class CircularString {
     }
 
     public static boolean isCircularString2(String a, String b) {
-        if (a.equals(b)) {
-            return true;
-        }
-        if (a == null || b == null || a.length() != b.length()) {
-            return false;
-        }
-        if (a.concat(a).indexOf(b) >= 0) {
-            return true;
-        }
+        if (a.equals(b)) { return true;}
+        if (a == null || b == null || a.length() != b.length()) { return false;}
+        if (a.concat(a).indexOf(b) >= 0) return true;
+
+
         return false;
     }
 
