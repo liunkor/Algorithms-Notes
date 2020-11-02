@@ -18,6 +18,12 @@ public class CircularString {
         return false;
     }
 
+    /**
+     * Concat string a with string a, then to find it contains the string b.
+     * @param a one string
+     * @param b one string
+     * @return
+     */
     public static boolean isCircularString2(String a, String b) {
         if (a.equals(b)) { return true;}
         if (a == null || b == null || a.length() != b.length()) { return false;}
