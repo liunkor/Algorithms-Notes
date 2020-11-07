@@ -3,7 +3,6 @@ import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.function.Consumer;
 
 public class Queue<Item> implements Iterable<Item> {
     private Node<Item> first;   //point to the first node of queue
@@ -16,7 +15,7 @@ public class Queue<Item> implements Iterable<Item> {
         n = 0;
     }
 
-    private static class Node<Item> {
+    private class Node<Item> {
         private Item item;
         private Node<Item> next;
     }
