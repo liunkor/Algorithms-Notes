@@ -66,6 +66,14 @@ public class Stack<Item> implements Iterable<Item> {
         return first.item;
     }
 
+    public Stack<Item> copy() {
+        Stack<Item> newStack = new Stack<>();
+        Stack<Item> tmp = new Stack<>();
+        for (Item item: this) tmp.push(item);
+        for (Item item: tmp) newStack.push(item);
+        return newStack;
+    }
+
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
@@ -118,5 +126,8 @@ public class Stack<Item> implements Iterable<Item> {
                 StdOut.println(stack.pop() + " ");
         }
         StdOut.println("(" + stack.size() + ") left on stack");
+        Stack<String> s = stack.copy();
+        for (String str: s) System.out.println(s.pop());
+        for (String str: stack) System.out.println(stack.pop());
     }
 }
