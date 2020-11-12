@@ -15,6 +15,15 @@ public class Stack<Item> implements Iterable<Item> {
     private static class Node<Item> {
         private Item item;
         private Node<Item> next;
+
+        public Node() {
+        }
+
+        public Node(Node<Item> x) {
+            item = x.item;
+            next = x.next;
+        }
+
     }
 
     /**
@@ -23,6 +32,19 @@ public class Stack<Item> implements Iterable<Item> {
     public Stack() {
         first = null;
         n = 0;
+    }
+
+    public Stack(Stack<Item> s) {
+        if (s.first != null) {
+            first = new Node(s.first);
+            Node index = first;
+            while (index.next != null) {
+                index.next = new Node(index.next);
+                index = index.next;
+            }
+            n = s.n;
+        }
+
     }
 
     public boolean isEmpty() {
@@ -126,8 +148,9 @@ public class Stack<Item> implements Iterable<Item> {
                 StdOut.println(stack.pop() + " ");
         }
         StdOut.println("(" + stack.size() + ") left on stack");
-        Stack<String> s = stack.copy();
+        Stack<String> s = new Stack(stack);
         for (String str: s) System.out.println(s.pop());
+        System.out.println("----------");
         for (String str: stack) System.out.println(stack.pop());
     }
 }
